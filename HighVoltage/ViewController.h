@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UITableViewController
+
+@property (weak, nonatomic) UIButton* addButton;
+@property (weak, nonatomic) UIButton* cancelButton;
+
+
 
 
 @end
