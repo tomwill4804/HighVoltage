@@ -38,6 +38,56 @@
 
 -(void)doCalc{
     
+    while (self.values.count < 4) {
+        
+        OhmValue* newvalue = [[OhmValue alloc] init];
+        
+        //
+        //  calc volts
+        //
+        if (!volts && amps && ohms) {
+            newvalue.baseValue = amps.trueValue * ohms.trueValue;
+            newvalue.type = @"Volts";
+        }
+        else if (!volts && watts && amps) {
+            newvalue.baseValue = watts.trueValue * amps.trueValue;
+            newvalue.type = @"Volts";
+        }
+        else if (!volts && watts && ohms) {
+            newvalue.baseValue = sqrt(watts.trueValue * ohms.trueValue);
+            newvalue.type = @"Volts";
+        }
+        
+        //
+        //  calc ohms
+        //
+        else if (!ohms && volts && amps) {
+            newvalue.baseValue = volts.trueValue / amps.trueValue;
+            newvalue.type = @"Ohms";
+        }
+        
+        //
+        //  calc amps
+        //
+        else if (!amps && volts && ohms) {
+            newvalue.baseValue = volts.trueValue / ohms.trueValue;
+            newvalue.type = @"Amps";
+        }
+        
+        //
+        //  calc watts
+        //
+        else if (!watts && volts && amps) {
+            newvalue.baseValue = volts.trueValue * amps.trueValue;
+            newvalue.type = @"Watts";
+        }
+        
+        //
+        //  add new value
+        //
+        if (newvalue.type.length > 0)
+            [self addValue:newvalue];
+    }
     
 }
 
@@ -48,11 +98,13 @@
     if ([value.type isEqualToString:@"Volts"])
         volts = value;
     if ([value.type isEqualToString:@"Amps"])
-        volts = value;
+        amps = value;
     if ([value.type isEqualToString:@"Watts"])
-        volts = value;
+        watts = value;
     if ([value.type isEqualToString:@"Ohms"])
-        volts = value;
+        ohms = value;
     
 }
+    
+    
 @end
