@@ -22,7 +22,6 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.ohmValue = [[OhmValue alloc] init];
     
 }
 
@@ -112,8 +111,6 @@
         //
         //  a subtype was selected so build the value
         //
-        //self.ohmValue.multiplier = [subTypeFactors[indexPath.row] integerValue];
-        //self.ohmValue.type = subTypes[2];
         
     }
     
@@ -130,9 +127,24 @@
     
 }
 
+
+//
+//  return the value to the caller
+//
 -(IBAction)okButtonClicked:(id)sender{
     
+    self.ohmValue = [[OhmValue alloc] init];
     
+    NSIndexPath *tindex = [self.typeTable indexPathForSelectedRow];
+    NSIndexPath *sindex = [self.subtypeTable indexPathForSelectedRow];
+    
+    self.ohmValue.baseValue = [self.inputValue.text floatValue];
+    
+    self.ohmValue.type = self.types[tindex.row];
+    
+    self.ohmValue.subtype = subTypes[sindex.row];
+    self.ohmValue.multiplier = [subTypeFactors[sindex.row] integerValue];
+    self.ohmValue.trueValue = self.ohmValue.baseValue * self.ohmValue.multiplier;
     
 }
 

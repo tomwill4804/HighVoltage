@@ -75,6 +75,7 @@
                                 <rect key="frame" x="152" y="27" width="30" height="30"/>
                                 <state key="normal" title="OK"/>
                                 <connections>
+                                    <action selector="okButtonClicked:" destination="fUx-20-5el" eventType="touchUpInside" id="Dsf-AI-e5V"/>
                                     <segue destination="hos-pa-IYy" kind="unwind" unwindAction="prepareForUnwind:" id="bmi-9z-vJh"/>
                                 </connections>
                             </button>
@@ -82,6 +83,7 @@
                                 <rect key="frame" x="207" y="28" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
+                                    <action selector="cancelButtonClicked:" destination="fUx-20-5el" eventType="touchUpInside" id="wEO-6V-Kik"/>
                                     <segue destination="hos-pa-IYy" kind="unwind" unwindAction="prepareForUnwind:" id="UrS-27-eHd"/>
                                 </connections>
                             </button>
@@ -97,6 +99,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="inputValue" destination="J0T-vw-eZh" id="W0s-yN-p3H"/>
                         <outlet property="subtypeTable" destination="Ujk-mY-c4H" id="BQu-6u-GWI"/>
                         <outlet property="typeTable" destination="Vvg-Up-4ZB" id="AF9-y9-ahH"/>
                     </connections>

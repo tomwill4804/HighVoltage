@@ -88,7 +88,8 @@
 //
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
     
-  
+    ValueViewController *vc = (ValueViewController *)segue.sourceViewController;
+    NSLog(@"x");
     
 }
 
