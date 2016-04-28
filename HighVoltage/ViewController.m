@@ -10,10 +10,11 @@
 #import "ValueViewController.h"
 #import "OhmValue.h"
 #import "ValueCell.h"
+#import "OhmBrain.h"
 
 @interface ViewController () {
     
-    NSMutableArray* values;
+    OhmBrain *brain;
     NSMutableArray* valueTypes;
     
 }
@@ -46,7 +47,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return values.count;
+    return brain.values.count;
     
 }
 
@@ -54,13 +55,13 @@
 {
     
     ValueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ValueCell"];
-    OhmValue* value = values[indexPath.row];
+    OhmValue* value = brain.values[indexPath.row];
     
     cell.baseValue.text = [NSString stringWithFormat:@"%g", value.baseValue];
-    cell.trueValue.text = [NSString stringWithFormat:@"%g", value.trueValue];
+    cell.subType.text = value.subtype;
     if (value.baseValue != value.trueValue) {
         cell.type.text = value.type;
-        cell.subType.text = value.subtype;
+        cell.trueValue.text = [NSString stringWithFormat:@"%g", value.trueValue];
     }
     else {
         cell.type.text = nil;
@@ -75,8 +76,8 @@
 
 -(IBAction)clearButtonClicked:(id)sender{
     
-    values = [[NSMutableArray alloc] init];
-    valueTypes = [@[@"Watts", @"Volts", @"Amps", @"Ohms"] mutableCopy];
+    brain = [[OhmBrain alloc] init];
+    valueTypes = [NSMutableArray arrayWithArray:[OhmBrain validTypes]];
     self.addButton.enabled = YES;
     
     [self.tableView reloadData];
@@ -102,14 +103,18 @@
     ValueViewController *vc = (ValueViewController *)segue.sourceViewController;
     
     if (vc.ohmValue) {
-        [values addObject:vc.ohmValue];
+        [brain addValue:vc.ohmValue];
         [valueTypes removeObject:vc.ohmValue.type];
         [self.tableView reloadData];
     }
     
-    if (values.count == 2){
+    //
+    //  if we have two entries we can do the calculation
+    //
+    if (brain.values.count == 2){
         self.addButton.enabled = NO;
-        
+        [brain doCalc];
+        [self.tableView reloadData];
         
     }
     

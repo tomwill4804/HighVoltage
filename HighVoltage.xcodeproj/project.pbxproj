@@ -16,6 +16,7 @@
 		E3EB677A1CD27C8900AE0C36 /* OhmValue.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EB67791CD27C8900AE0C36 /* OhmValue.m */; };
 		E3EB677D1CD280A000AE0C36 /* ValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EB677C1CD280A000AE0C36 /* ValueViewController.m */; };
 		E3EB67801CD280C000AE0C36 /* ValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EB677F1CD280C000AE0C36 /* ValueCell.m */; };
+		E3EB678B1CD2BE4500AE0C36 /* OhmBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EB678A1CD2BE4500AE0C36 /* OhmBrain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		E3EB677C1CD280A000AE0C36 /* ValueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueViewController.m; sourceTree = "<group>"; };
 		E3EB677E1CD280C000AE0C36 /* ValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueCell.h; sourceTree = "<group>"; };
 		E3EB677F1CD280C000AE0C36 /* ValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueCell.m; sourceTree = "<group>"; };
+		E3EB67891CD2BE4500AE0C36 /* OhmBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OhmBrain.h; sourceTree = "<group>"; };
+		E3EB678A1CD2BE4500AE0C36 /* OhmBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OhmBrain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 		E3EB67601CD2705A00AE0C36 /* HighVoltage */ = {
 			isa = PBXGroup;
 			children = (
+				E3EB67891CD2BE4500AE0C36 /* OhmBrain.h */,
+				E3EB678A1CD2BE4500AE0C36 /* OhmBrain.m */,
 				E3EB67781CD27C8900AE0C36 /* OhmValue.h */,
 				E3EB67791CD27C8900AE0C36 /* OhmValue.m */,
 				E3EB677B1CD280A000AE0C36 /* ValueViewController.h */,
@@ -167,6 +172,7 @@
 				E3EB67691CD2705A00AE0C36 /* ViewController.m in Sources */,
 				E3EB67661CD2705A00AE0C36 /* AppDelegate.m in Sources */,
 				E3EB677D1CD280A000AE0C36 /* ValueViewController.m in Sources */,
+				E3EB678B1CD2BE4500AE0C36 /* OhmBrain.m in Sources */,
 				E3EB677A1CD27C8900AE0C36 /* OhmValue.m in Sources */,
 				E3EB67631CD2705A00AE0C36 /* main.m in Sources */,
 				E3EB67801CD280C000AE0C36 /* ValueCell.m in Sources */,
