@@ -7,11 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "ValueViewController.h"
 #import "OhmValue.h"
 
 @interface ViewController () {
     
     NSMutableArray* values;
+    NSMutableArray* valueTypes;
     
 }
 
@@ -20,8 +22,10 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self clearButtonClicked:nil];
+    
 }
 
 #pragma mark - Table View
@@ -48,21 +52,45 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    
-
     OhmValue* value = values[indexPath.row];
     
-
     cell.textLabel.text = [NSString stringWithFormat:@"%f", value.baseValue];
     cell.detailTextLabel.text = value.type;
     
-
     return cell;
     
 }
 
+
+
+-(IBAction)clearButtonClicked:(id)sender{
+    
+    values = nil;
+    valueTypes = [@[@"Watts", @"Volts", @"Amps", @"Ohms"] mutableCopy];
+    self.addButton.enabled = YES;
+    
+}
+
+//
+//  set values array for selector
+//
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+        
+    ValueViewController *vc = (ValueViewController *)segue.destinationViewController;
+    vc.types = valueTypes;
+    
+}
+
+
+//
+//  back from segue so reload table
+//
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+    
+  
+    
+}
 
 
 @end

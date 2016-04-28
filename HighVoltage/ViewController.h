@@ -10,10 +10,8 @@
 
 @interface ViewController : UITableViewController
 
-@property (weak, nonatomic) UIButton* addButton;
-@property (weak, nonatomic) UIButton* cancelButton;
-
-
+@property (weak, nonatomic) UIBarButtonItem* addButton;
+@property (weak, nonatomic) UIBarButtonItem* clearButton;
 
 
 @end

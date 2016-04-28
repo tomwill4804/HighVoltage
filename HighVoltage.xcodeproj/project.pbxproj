@@ -14,6 +14,9 @@
 		E3EB676E1CD2705A00AE0C36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3EB676D1CD2705A00AE0C36 /* Assets.xcassets */; };
 		E3EB67711CD2705A00AE0C36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3EB676F1CD2705A00AE0C36 /* LaunchScreen.storyboard */; };
 		E3EB677A1CD27C8900AE0C36 /* OhmValue.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EB67791CD27C8900AE0C36 /* OhmValue.m */; };
+		E3EB677D1CD280A000AE0C36 /* ValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EB677C1CD280A000AE0C36 /* ValueViewController.m */; };
+		E3EB67801CD280C000AE0C36 /* ValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EB677F1CD280C000AE0C36 /* ValueCell.m */; };
+		E3EB67821CD2846700AE0C36 /* types.json in Resources */ = {isa = PBXBuildFile; fileRef = E3EB67811CD2846700AE0C36 /* types.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,11 @@
 		E3EB67721CD2705A00AE0C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3EB67781CD27C8900AE0C36 /* OhmValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OhmValue.h; sourceTree = "<group>"; };
 		E3EB67791CD27C8900AE0C36 /* OhmValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OhmValue.m; sourceTree = "<group>"; };
+		E3EB677B1CD280A000AE0C36 /* ValueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueViewController.h; sourceTree = "<group>"; };
+		E3EB677C1CD280A000AE0C36 /* ValueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueViewController.m; sourceTree = "<group>"; };
+		E3EB677E1CD280C000AE0C36 /* ValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueCell.h; sourceTree = "<group>"; };
+		E3EB677F1CD280C000AE0C36 /* ValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueCell.m; sourceTree = "<group>"; };
+		E3EB67811CD2846700AE0C36 /* types.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = types.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,10 +71,15 @@
 			children = (
 				E3EB67781CD27C8900AE0C36 /* OhmValue.h */,
 				E3EB67791CD27C8900AE0C36 /* OhmValue.m */,
-				E3EB67641CD2705A00AE0C36 /* AppDelegate.h */,
-				E3EB67651CD2705A00AE0C36 /* AppDelegate.m */,
+				E3EB677B1CD280A000AE0C36 /* ValueViewController.h */,
+				E3EB677C1CD280A000AE0C36 /* ValueViewController.m */,
+				E3EB677E1CD280C000AE0C36 /* ValueCell.h */,
+				E3EB677F1CD280C000AE0C36 /* ValueCell.m */,
 				E3EB67671CD2705A00AE0C36 /* ViewController.h */,
 				E3EB67681CD2705A00AE0C36 /* ViewController.m */,
+				E3EB67811CD2846700AE0C36 /* types.json */,
+				E3EB67641CD2705A00AE0C36 /* AppDelegate.h */,
+				E3EB67651CD2705A00AE0C36 /* AppDelegate.m */,
 				E3EB676A1CD2705A00AE0C36 /* Main.storyboard */,
 				E3EB676D1CD2705A00AE0C36 /* Assets.xcassets */,
 				E3EB676F1CD2705A00AE0C36 /* LaunchScreen.storyboard */,
@@ -144,6 +157,7 @@
 				E3EB67711CD2705A00AE0C36 /* LaunchScreen.storyboard in Resources */,
 				E3EB676E1CD2705A00AE0C36 /* Assets.xcassets in Resources */,
 				E3EB676C1CD2705A00AE0C36 /* Main.storyboard in Resources */,
+				E3EB67821CD2846700AE0C36 /* types.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,8 +170,10 @@
 			files = (
 				E3EB67691CD2705A00AE0C36 /* ViewController.m in Sources */,
 				E3EB67661CD2705A00AE0C36 /* AppDelegate.m in Sources */,
+				E3EB677D1CD280A000AE0C36 /* ValueViewController.m in Sources */,
 				E3EB677A1CD27C8900AE0C36 /* OhmValue.m in Sources */,
 				E3EB67631CD2705A00AE0C36 /* main.m in Sources */,
+				E3EB67801CD280C000AE0C36 /* ValueCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
