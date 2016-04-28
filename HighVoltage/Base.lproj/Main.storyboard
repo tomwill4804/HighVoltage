@@ -9,13 +9,13 @@
         <scene sceneID="G3P-s9-VJ5">
             <objects>
                 <tableViewController id="r4t-uV-y3Y" customClass="ViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" id="bmJ-jC-jwu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="96" sectionHeaderHeight="18" sectionFooterHeight="18" id="bmJ-jC-jwu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ValueCell" rowHeight="96" id="MCf-Kb-jxK" customClass="ValueCell">
-                                <rect key="frame" x="0.0" y="92" width="600" height="96"/>
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MCf-Kb-jxK" id="sqg-b6-g1Q">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="95.5"/>

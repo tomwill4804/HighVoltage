@@ -59,6 +59,19 @@
         }
         
         //
+        //  calc amps
+        //
+        else if (!amps && volts && ohms) {
+            newvalue.baseValue = volts.trueValue / ohms.trueValue;
+            newvalue.type = @"Amps";
+        }
+        else if (!amps && volts && watts) {
+            newvalue.baseValue = watts.trueValue / volts.trueValue;
+            newvalue.type = @"Amps";
+        }
+
+        
+        //
         //  calc ohms
         //
         else if (!ohms && volts && amps) {
@@ -66,13 +79,6 @@
             newvalue.type = @"Ohms";
         }
         
-        //
-        //  calc amps
-        //
-        else if (!amps && volts && ohms) {
-            newvalue.baseValue = volts.trueValue / ohms.trueValue;
-            newvalue.type = @"Amps";
-        }
         
         //
         //  calc watts
