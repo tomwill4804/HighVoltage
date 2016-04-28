@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ValueViewController.h"
 #import "OhmValue.h"
+#import "ValueCell.h"
 
 @interface ViewController () {
     
@@ -52,11 +53,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    ValueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ValueCell"];
     OhmValue* value = values[indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%f", value.baseValue];
-    cell.detailTextLabel.text = value.type;
+    cell.baseValue.text = [NSString stringWithFormat:@"%g", value.baseValue];
+    cell.trueValue.text = [NSString stringWithFormat:@"%g", value.trueValue];
+    if (value.baseValue != value.trueValue) {
+        cell.type.text = value.type;
+        cell.subType.text = value.subtype;
+    }
+    else {
+        cell.type.text = nil;
+        cell.trueValue.text = nil;
+    }
     
     return cell;
     
@@ -66,9 +75,11 @@
 
 -(IBAction)clearButtonClicked:(id)sender{
     
-    values = nil;
+    values = [[NSMutableArray alloc] init];
     valueTypes = [@[@"Watts", @"Volts", @"Amps", @"Ohms"] mutableCopy];
     self.addButton.enabled = YES;
+    
+    [self.tableView reloadData];
     
 }
 
@@ -84,12 +95,23 @@
 
 
 //
-//  back from segue so reload table
+//  back from segue build a new entry in the array
 //
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
     
     ValueViewController *vc = (ValueViewController *)segue.sourceViewController;
-    NSLog(@"x");
+    
+    if (vc.ohmValue) {
+        [values addObject:vc.ohmValue];
+        [valueTypes removeObject:vc.ohmValue.type];
+        [self.tableView reloadData];
+    }
+    
+    if (values.count == 2){
+        self.addButton.enabled = NO;
+        
+        
+    }
     
 }
 

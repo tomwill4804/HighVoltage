@@ -10,4 +10,9 @@
 
 @interface ValueCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel* baseValue;
+@property (weak, nonatomic) IBOutlet UILabel* subType;
+@property (weak, nonatomic) IBOutlet UILabel* trueValue;
+@property (weak, nonatomic) IBOutlet UILabel* type;;
+
 @end
