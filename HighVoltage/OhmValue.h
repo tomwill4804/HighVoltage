@@ -23,6 +23,7 @@ enum ohmValueType {
 @property float multiplier;
 @property float trueValue;
 @property (strong, nonatomic) NSString* type;
+@property (strong, nonatomic) NSString* subtype;
 @property OhmValue* vtype;
 
 @end

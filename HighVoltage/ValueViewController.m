@@ -8,7 +8,12 @@
 
 #import "ValueViewController.h"
 
-@interface ValueViewController ()
+@interface ValueViewController () {
+    
+    NSMutableArray* subTypes;
+    NSArray* subTypeFactors;
+    
+}
 
 @end
 
@@ -17,38 +22,129 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.ohmValue = [[OhmValue alloc] init];
     
 }
 
 
-#pragma mark - Table view data source
 
+//
+//  one section
+//
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     return 1;
     
 }
 
+
+//
+//  return count of rows for type and subtype tables
+//
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.types.count;
+    if (tableView == self.typeTable)
+        return self.types.count;
+    else
+        return subTypes.count;
     
 }
 
 
+//
+//  return row text for type and subtype tables
+//
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"leftCell";
+    static NSString *CellIdentifier = @"TypeCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
     }
 
-    cell.textLabel.text = self.types[indexPath.row];
+    if (tableView == self.typeTable)
+        cell.textLabel.text = self.types[indexPath.row];
+    else
+        cell.textLabel.text = subTypes[indexPath.row];
+    
+    cell.accessoryType = UITableViewCellAccessoryNone;
     return  cell;
     
 }
+
+//
+//  mark table cell
+//
+//  if type table then build the array of subtypes
+//  if subtyps table then set value to return to caller
+//
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath   *)indexPath
+{
+    
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    if (tableView == self.typeTable) {
+        
+        //
+        //  use the current type to build a list of subtypes for the second table
+        //
+        subTypes = [[NSMutableArray alloc] init];
+        NSString* type = self.types[indexPath.row];
+        [subTypes addObject:[NSString stringWithFormat:@"micro-%@", type]];
+        [subTypes addObject:[NSString stringWithFormat:@"milli-%@", type]];
+        [subTypes addObject:[NSString stringWithFormat:@"%@", type]];
+        [subTypes addObject:[NSString stringWithFormat:@"kilo-%@", type]];
+        [subTypes addObject:[NSString stringWithFormat:@"mega-%@", type]];
+        [self.subtypeTable reloadData];
+        
+        NSIndexPath *sindexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+        UITableViewCell* scell = [self.subtypeTable cellForRowAtIndexPath:sindexPath];
+        scell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.subtypeTable selectRowAtIndexPath:sindexPath animated:YES  scrollPosition:UITableViewScrollPositionBottom];
+        
+        subTypeFactors = @[@0.000001, @0.001, @1.0, @1000.0, @1000000.0];
+        
+    }
+    
+    else {
+        
+        //
+        //  a subtype was selected so build the value
+        //
+        //self.ohmValue.multiplier = [subTypeFactors[indexPath.row] integerValue];
+        //self.ohmValue.type = subTypes[2];
+        
+    }
+    
+}
+
+
+//
+//  remove check on cell
+//
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    
+}
+
+-(IBAction)okButtonClicked:(id)sender{
+    
+    
+    
+}
+
+
+-(IBAction)cancelButtonClicked:(id)sender{
+    
+    self.ohmValue = nil;
+    
+}
+
+
+
 
 
 @end
