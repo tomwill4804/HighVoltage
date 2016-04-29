@@ -15,6 +15,8 @@
 
 @property (weak, nonatomic)         NSMutableArray* types;
 
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
+
 @property (weak, nonatomic) IBOutlet UITableView *typeTable;
 @property (weak, nonatomic) IBOutlet UITableView *subtypeTable;
 @property (weak, nonatomic) IBOutlet UITextField *inputValue;

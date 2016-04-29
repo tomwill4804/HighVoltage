@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.okButton.enabled = NO;
     
 }
 
@@ -103,6 +104,8 @@
         [self.subtypeTable selectRowAtIndexPath:sindexPath animated:YES  scrollPosition:UITableViewScrollPositionBottom];
         
         subTypeFactors = @[@0.000001, @0.001, @1.0, @1000.0, @1000000.0];
+        
+        self.okButton.enabled = YES;
         
     }
     

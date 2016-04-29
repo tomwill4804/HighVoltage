@@ -87,12 +87,15 @@
             newvalue.baseValue = volts.trueValue * amps.trueValue;
             newvalue.type = @"Watts";
         }
+        else
+           newvalue.type = @"???";
         
         //
         //  add new value
         //
-        if (newvalue.type.length > 0)
-            [self addValue:newvalue];
+        newvalue.trueValue = newvalue.baseValue;
+        newvalue.subtype = newvalue.type;
+        [self addValue:newvalue];
     }
     
 }
